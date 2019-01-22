@@ -9,7 +9,7 @@ const roverOne = {
 }
 
 const roverTwo = {
-  name: "roverTw0",
+  name: "roverTwo",
   direction: "N",
   x: 5,
   y: 3,
@@ -18,21 +18,16 @@ const roverTwo = {
 
 
 // Grid Object
+var row = [null, null, null, null, null, null, null, null, null, null];
 const grid = {
-  area: [["roverOne", null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, "roverTwo", null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null, null, null]],
-  xMax: 9,
+  area: [[...row],[...row],[...row],[...row],[...row],
+        [...row],[...row],[...row],[...row],[...row]],
+  yMin: 0,
+  xMin: 0,      
   yMax: 9,
+  xMax: 9,
   checkPosition(yNew,xNew){ 
-    if (yNew < 0 || yNew > 9 || xNew < 0  || xNew > 9) {
+    if (yNew < this.yMin || yNew > this.yMax || xNew < this.xMin  || xNew > this.xMax) {
     console.log("you bumped against the wall");
    } else if (grid.area[yNew][xNew]) {
     console.log("You bumped into my rover!") ;
@@ -41,6 +36,10 @@ const grid = {
      }
 }
 }
+
+// place the rovers on the grid area
+grid.area[0][0] = roverOne.name;
+grid.area[3][5] = roverTwo.name;
 
 // ======================
 function turnLeft(rover){
@@ -108,10 +107,8 @@ function moveForward(rover){
      } else {
        return grid.checkPosition;
      }
-   }
-     
-
-
+}
+   
 function moveBackward(rover){
   console.log("moveBackward was called");
     let xNew = rover.x;
@@ -138,12 +135,11 @@ function moveBackward(rover){
     } else {
       return grid.checkPosition;
     }
-  }
-
+}
 
 function travel(rover,string){
   for (i = 0; i < string.length; i++) {
-    let previousPosition = [rover.x, rover.y]
+    let previousPosition = [rover.y, rover.x]
     if (string[i] === "f") {
       moveForward(rover);
       rover.travelLog.push(previousPosition);
@@ -160,4 +156,3 @@ function travel(rover,string){
   }
 
 }
-
