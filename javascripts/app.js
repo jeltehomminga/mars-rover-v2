@@ -3,16 +3,16 @@
 const roverOne = {
   name: "roverOne",
   direction: "N",
-  x: 0,
   y: 0,
+  x: 0,
   travelLog: []
 }
 
 const roverTwo = {
   name: "roverTwo",
   direction: "N",
-  x: 5,
   y: 3,
+  x: 5,
   travelLog: []
 }
 
@@ -125,6 +125,7 @@ function moveBackward(rover){
     break;
     case "W":
     xNew ++;
+    break;
     default:
     console.log("Erorrrrr....No valid direction") ;
   } if (grid.checkPosition(yNew, xNew) === true) {
@@ -138,21 +139,27 @@ function moveBackward(rover){
 }
 
 function travel(rover,string){
+  console.log(`Hi it's me, ${rover.name}. I'm now at position ${[rover.y, rover.x]}`)
   for (i = 0; i < string.length; i++) {
     let previousPosition = [rover.y, rover.x]
-    if (string[i] === "f") {
+    switch(string[i]) {
+      case "f":
       moveForward(rover);
       rover.travelLog.push(previousPosition);
-    } else if (string[i] === "r") {
-      turnRight(rover);
-    } else if (string[i] === "l") {
-      turnLeft(rover);
-    } else if (string[i] === "b") {
+      break;
+      case "b":
       moveBackward(rover);
       rover.travelLog.push(previousPosition);
-    } else {
-      console.log("unknown travel command");
+      break;
+      case "r":
+      turnRight(rover);
+      break;
+      case "l":
+      turnLeft(rover);
+      break;
+      default:
+      return `I don't know the command ${string[i]}, I will stay here at ${[rover.y, rover.x]}`
     }
-  }
+  } console.log(`My travel has ended at position ${[rover.y, rover.x]} `)
 
 }
