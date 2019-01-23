@@ -18,7 +18,7 @@ const roverTwo = {
 
 
 // Grid Object
-var row = [null, null, null, null, null, null, null, null, null, null];
+var row = [, , , , , , , , , ,];
 const grid = {
   area: [[...row],[...row],[...row],[...row],[...row],
         [...row],[...row],[...row],[...row],[...row]],
@@ -28,14 +28,15 @@ const grid = {
   xMax: 9,
   checkPosition(yNew,xNew){ 
     if (yNew < this.yMin || yNew > this.yMax || xNew < this.xMin  || xNew > this.xMax) {
-    console.log("you bumped against the wall");
+    return console.log("you bumped against the wall");
    } else if (grid.area[yNew][xNew]) {
-    console.log("You bumped into my rover!") ;
+    return console.log("You bumped into my rover!") ;
    } else {
     return true;
      }
 }
 }
+
 
 // place the rovers on the grid area
 grid.area[0][0] = roverOne.name;
@@ -47,37 +48,48 @@ function turnLeft(rover){
   switch (rover.direction) {
     case "N":
     rover.direction = "W";
+    imgTransform.style.transform = "rotate(-90deg)";
     break;
     case "E":
     rover.direction = "N";
+    imgTransform.style.transform = "rotate(0deg)";
     break;
     case "S":
     rover.direction = "E";
+    imgTransform.style.transform = "rotate(90deg)"; 
     break;
     case "W":
     rover.direction = "S";
+    imgTransform.style.transform = "rotate(180deg)";
     break;
     default: rover.direction = "N";
+    break;
   }
 }
 
 function turnRight(rover){
   console.log("turnRight was called!");
+  let imgTransform = document.getElementById(`${rover.y}${rover.x}`).firstChild
   switch (rover.direction) {
     case "N":
     rover.direction = "E";
+    imgTransform.style.transform = "rotate(90deg)"; 
     break;
     case "E":
     rover.direction = "S";
+    imgTransform.style.transform = "rotate(180deg)"
     break;
     case "S":
     rover.direction = "W";
+    imgTransform.style.transform = "rotate(-90deg)"
     break;
     case "W":
     rover.direction = "N";
+    imgTransform.style.transform = "rotate(0deg)"
     break;
     default: rover.direction = "N";
-  }
+    break;
+  } 
 }
 
 function moveForward(rover){
@@ -105,6 +117,7 @@ function moveForward(rover){
      grid.area[yNew][xNew] = rover.name;
      rover.x = xNew;
      rover.y = yNew;
+     return updateTable();     
      } else {
        return grid.checkPosition;
      }
@@ -134,6 +147,7 @@ function moveBackward(rover){
     grid.area[yNew][xNew] = rover.name;
     rover.x = xNew;
     rover.y = yNew;
+    return updateTable();
     } else {
       return grid.checkPosition;
     }
@@ -161,6 +175,22 @@ function travel(rover,string){
       default:
       return `I don't know the command ${string[i]}, I will stay here at ${[rover.y, rover.x]}`
     }
-  } console.log(`My travel has ended at position ${[rover.y, rover.x]} `)
-
+  } 
+  return console.log(`My travel has ended at position ${[rover.y, rover.x]} `)
 }
+
+
+function updateTable() {
+let gridarea = "<table border='1|1'><h1>Move on Mars</h1>";
+for (let y = 0; y < grid.area.length; y++) {
+  gridarea +="<tr>";
+    for (let x = 0; x < grid.area[y].length; x++) {
+      gridarea +=`<td id=${y}${x}>${grid.area[y][x] ? '<img src="images\\MarsRoverTopViewPurple.png"/>' : "" }</td>`;
+    }
+    gridarea +="</tr>";
+}
+gridarea +="</table>";
+document.getElementById("box").innerHTML = gridarea ;
+}
+
+updateTable();
