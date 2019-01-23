@@ -97,6 +97,7 @@ function moveForward(rover){
     break;
     case "W":
     xNew --;
+    break;
     default:
     console.log("Erorrrrr....No valid direction") ;
    } if (grid.checkPosition(yNew, xNew) === true) {
