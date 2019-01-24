@@ -48,48 +48,39 @@ function turnLeft(rover){
   switch (rover.direction) {
     case "N":
     rover.direction = "W";
-    imgTransform.style.transform = "rotate(-90deg)";
     break;
     case "E":
     rover.direction = "N";
-    imgTransform.style.transform = "rotate(0deg)";
     break;
     case "S":
     rover.direction = "E";
-    imgTransform.style.transform = "rotate(90deg)"; 
     break;
     case "W":
     rover.direction = "S";
-    imgTransform.style.transform = "rotate(180deg)";
     break;
     default: rover.direction = "N";
     break;
-  }
+  } return updateTable(); 
 }
 
 function turnRight(rover){
   console.log("turnRight was called!");
-  let imgTransform = document.getElementById(`${rover.y}${rover.x}`).firstChild
   switch (rover.direction) {
     case "N":
     rover.direction = "E";
-    imgTransform.style.transform = "rotate(90deg)"; 
     break;
     case "E":
     rover.direction = "S";
-    imgTransform.style.transform = "rotate(180deg)"
     break;
     case "S":
     rover.direction = "W";
-    imgTransform.style.transform = "rotate(-90deg)"
     break;
     case "W":
     rover.direction = "N";
-    imgTransform.style.transform = "rotate(0deg)"
     break;
     default: rover.direction = "N";
     break;
-  } 
+  } return updateTable(); 
 }
 
 function moveForward(rover){
@@ -101,7 +92,6 @@ function moveForward(rover){
     yNew--
     break;
     case "E":
-    console.log
     xNew ++;
     break;
     case "S":
@@ -112,6 +102,7 @@ function moveForward(rover){
     break;
     default:
     console.log("Erorrrrr....No valid direction") ;
+    break;
    } if (grid.checkPosition(yNew, xNew) === true) {
      grid.area[rover.y][rover.x] = null;
      grid.area[yNew][xNew] = rover.name;
@@ -185,7 +176,9 @@ let gridarea = "<table border='1|1'><h1>Move on Mars</h1>";
 for (let y = 0; y < grid.area.length; y++) {
   gridarea +="<tr>";
     for (let x = 0; x < grid.area[y].length; x++) {
-      gridarea +=`<td id=${y}${x}>${grid.area[y][x] ? '<img src="images\\MarsRoverTopViewPurple.png"/>' : "" }</td>`;
+      gridarea +=`<td id=${y}${x}>${grid.area[y][x] ? 
+      `<img id=${grid.area[y][x]} class=${grid.area[y][x] == "roverOne" ? roverOne.direction : roverTwo.direction} 
+      src="images\\MarsRoverTopViewPurple.png"/>` : "" }</td>`;
     }
     gridarea +="</tr>";
 }

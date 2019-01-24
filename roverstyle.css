@@ -1,3 +1,7 @@
+body {
+    background-color: yellowgreen;
+}
+
 
 h1 {
     font-family: 'Permanent Marker', cursive;
@@ -28,6 +32,21 @@ td {
       margin-top: 3%;
   }
 
-  body {
-      background-color: yellowgreen;
-  }
+/* rotate classes depending on direction of rover */
+
+.N {
+    transform: rotate(0deg);
+}
+
+.E   {
+    transform: rotate(90deg);
+}
+
+.S {
+    transform: rotate(180deg);
+}
+
+.W {
+    transform: rotate(-90deg);
+}
+
