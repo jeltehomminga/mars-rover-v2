@@ -40,7 +40,8 @@ const grid = {
 
 // place the rovers on the grid area
 grid.area[0][0] = roverOne.name;
-grid.area[3][5] = roverTwo.name;
+// place the roverTwo randomly somewhere on the grid
+grid.area[Math.floor(Math.random() * 9) + 1][Math.floor(Math.random() * 9) + 1] = roverTwo.name;
 
 // ======================
 function turnLeft(rover){
