@@ -39,9 +39,11 @@ const grid = {
 
 
 // place the rovers on the grid area
-grid.area[0][0] = roverOne.name;
+grid.area[roverOne.y][roverOne.x] = roverOne.name;
 // place the roverTwo randomly somewhere on the grid
-grid.area[3][5] = roverTwo.name;
+roverTwo.y = Math.floor(Math.random() * 9) + 1;
+roverTwo.x = Math.floor(Math.random() * 9) + 1;
+grid.area[roverTwo.y][roverTwo.x] = roverTwo.name;
 
 
 
