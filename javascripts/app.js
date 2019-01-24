@@ -41,7 +41,9 @@ const grid = {
 // place the rovers on the grid area
 grid.area[0][0] = roverOne.name;
 // place the roverTwo randomly somewhere on the grid
-grid.area[Math.floor(Math.random() * 9) + 1][Math.floor(Math.random() * 9) + 1] = roverTwo.name;
+grid.area[3][5] = roverTwo.name;
+
+
 
 // ======================
 function turnLeft(rover){
@@ -133,7 +135,8 @@ function moveBackward(rover){
     xNew ++;
     break;
     default:
-    console.log("Erorrrrr....No valid direction") ;
+    console.log("Erorrrrr....No valid direction");
+    break;
   } if (grid.checkPosition(yNew, xNew) === true) {
     grid.area[rover.y][rover.x] = null;
     grid.area[yNew][xNew] = rover.name;
