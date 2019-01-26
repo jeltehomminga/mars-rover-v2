@@ -18,11 +18,15 @@ h1 {
   width: max-content;
 }
 
-#titlesm {
+h3 {
+  margin-bottom: 0;
+}
+
+#titlelarge {
   display: none;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
@@ -117,17 +121,6 @@ table {
   transform: rotate(-90deg);
 }
 
-@media screen and (max-width: 1000px) {
-  #titlelarge {
-    display: none;
-  }
-
-  #titlesm {
-    display: block;
-    margin: 0 auto;
-  }
-}
-
 @media screen and (max-width: 800px) {
   .maincontainer {
     flex-direction: column-reverse;
@@ -142,6 +135,7 @@ table {
   .controlscontainer {
     flex-direction: column-reverse;
     margin: 5% auto;
+    width: 80%;
   }
 }
 
