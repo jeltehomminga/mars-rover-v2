@@ -1,79 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mars Rover</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Permanent+Marker"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./roverstyle.css" />
-  </head>
-  <body>
-    <h1 id="titlesm">Move on Mars</h1>
-    <div class="maincontainer">
-      <div class="controlscontainer">
-        <div id="form" class="form">
-          <h3>provide your travel plan</h3>
-          <p>
-            press f for foward<br />press b for backward<br />press l to turn
-            left<br />
-            press r to turn right
-          </p>
-          <input
-            id="inputtext"
-            type="text"
-            autocomplete="off"
-            pattern="[fblrFBLR]{1,20}"
-            name="travelinput"
-          />
-          <input
-            id="submittravelplan"
-            type="button"
-            id="buttongo"
-            value="Go!"
-          />
-        </div>
-        <div class="nonupcontrols">
-          <h3>navigate with arrow keys</h3>
-          <table>
-            <tr>
-              <td class="hidden"></td>
-              <td id="upcontrol" class="control">
-                <i class="fas fa-angle-up"></i>
-              </td>
-              <td class="hidden"></td>
-            </tr>
-            <tr>
-              <td id="leftcontrol" class="control">
-                <i class="fas fa-angle-left"></i>
-              </td>
-              <td class="hidden"></td>
-              <td id="rightcontrol" class="control">
-                <i class="fas fa-angle-right"></i>
-              </td>
-            </tr>
-            <tr>
-              <td class="hidden"></td>
-              <td id="downcontrol" class="control">
-                <i class="fas fa-angle-down"></i>
-              </td>
-              <td class="hidden"></td>
-            </tr>
-          </table>
-        </div>
-      </div>
 
-      <div id="box"></div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Mars Rover</title>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./roverstyle.css" />
+</head>
+
+<body>
+  <h1 id="titlesm">Move on Mars</h1>
+  <div class="maincontainer">
+    <div class="controlscontainer">
+      <div id="form" class="form">
+        <h3>provide your travel plan</h3>
+        <p>
+          press f for foward<br />press b for backward<br />press l to turn
+          left<br />
+          press r to turn right
+        </p>
+        <input id="inputtext" type="text" autocomplete="off" pattern="[fblrFBLR]{1,20}" name="travelinput" onkeydown="keyCode(event)" />
+        <input id="submittravelplan" type="button" value="Go!" />
+      </div>
+      <div class="nonupcontrols">
+        <h3>navigate with arrow keys</h3>
+        <table>
+          <tr>
+            <td class="hidden"></td>
+            <td id="upcontrol" class="control">
+              <i class="fas fa-angle-up"></i>
+            </td>
+            <td class="hidden"></td>
+          </tr>
+          <tr>
+            <td id="leftcontrol" class="control">
+              <i class="fas fa-angle-left"></i>
+            </td>
+            <td class="hidden"></td>
+            <td id="rightcontrol" class="control">
+              <i class="fas fa-angle-right"></i>
+            </td>
+          </tr>
+          <tr>
+            <td class="hidden"></td>
+            <td id="downcontrol" class="control">
+              <i class="fas fa-angle-down"></i>
+            </td>
+            <td class="hidden"></td>
+          </tr>
+        </table>
+      </div>
     </div>
 
-    <script src="javascripts/app.js"></script>
-  </body>
+    <div id="box"></div>
+  </div>
+
+  <script src="javascripts/app.js"></script>
+</body>
+
 </html>

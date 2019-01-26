@@ -206,13 +206,13 @@ function updateTable() {
       gridarea += `<td id=${y}${x}>${
         grid.area[y][x]
           ? `<img id=${grid.area[y][x]} class=${
-              grid.area[y][x] == "roverOne"
-                ? roverOne.direction
-                : roverTwo.direction
-            } 
+          grid.area[y][x] == "roverOne"
+            ? roverOne.direction
+            : roverTwo.direction
+          } 
       src="images\\MarsRoverTopViewPurple.png"/>`
           : ""
-      }</td>`;
+        }</td>`;
     }
     gridarea += "</tr>";
   }
@@ -236,7 +236,7 @@ leftControl.onclick = () => travel(roverOne, "l");
 downControl.onclick = () => travel(roverOne, "b");
 
 //control by arrowkeys
-document.onkeydown = function(e) {
+document.onkeydown = function (e) {
   switch (e.keyCode) {
     case 37:
       travel(roverOne, "l");
@@ -253,10 +253,9 @@ document.onkeydown = function(e) {
   }
 };
 
-//from submit travel plan
+//submit travel plan
 
-let button = document.getElementById("submittravelplan");
-let form = document.getElementById("form");
+const button = document.getElementById("submittravelplan");
 
 button.onclick = () => {
   let value = document.getElementById("inputtext").value;
@@ -264,3 +263,5 @@ button.onclick = () => {
   travel(roverOne, valueLowerCase);
   document.getElementById("inputtext").value = "";
 };
+
+const keyCode = event => event.keyCode == 13 ? button.onclick() : "";
