@@ -84,7 +84,7 @@ table {
   display: flex;
   justify-content: space-between;
   width: max-content;
-  margin: 8% auto;
+  margin: 3% auto;
 }
 
 .controlscontainer {
@@ -121,7 +121,7 @@ table {
   transform: rotate(-90deg);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 918px) {
   .maincontainer {
     flex-direction: column-reverse;
     align-items: center;
