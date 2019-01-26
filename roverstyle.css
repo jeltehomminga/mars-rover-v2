@@ -1,5 +1,7 @@
 body {
     background-color: yellowgreen;
+    padding-top: 2%;
+    font-family: 'Permanent Marker';
 }
 
 
@@ -8,9 +10,33 @@ h1 {
     text-shadow: -4px -2px #FF009f;
     color: purple;
     font-size: 50px;
-    width: 25%;
     margin: 0 auto;
     }
+
+form {
+    display: flex;
+    flex-direction: column;
+}    
+
+input {
+    background-color:  lightslategray;
+    border-radius: 5px;
+    border: groove burlywood;
+    width: 45%;
+    margin: 5px auto;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 100;
+    font-size: 1.2em;
+    letter-spacing: 5px;
+}
+
+#submittravelplan {
+    width: 25%;
+}
+
+input:invalid {
+    border: solid red 5px;
+}
 
 td {
     width: 55px;
@@ -27,9 +53,40 @@ td {
     position: absolute;
   }
 
+  i {
+      font-size: 30px;
+      color: purple;
+  }
+
+  .hidden {
+      visibility: hidden;
+  }
+
   table {
       margin: 0 auto;
       margin-top: 3%;
+  }
+
+  .maincontainer {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
+  }
+
+  .controlscontainer {
+      width: 50%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: center;
+  }
+
+  .control {
+      width: 55px;
+      background-color: lightslategrey;
+      border-radius: 10px;
   }
 
 /* rotate classes depending on direction of rover */

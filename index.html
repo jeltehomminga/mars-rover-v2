@@ -4,11 +4,44 @@
   <meta charset="UTF-8">
   <title>Mars Rover</title>
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./roverstyle.css" />
 </head>
 <body>
+    
+  <div class="maincontainer">
+  <div class="controlscontainer"> 
+      <h1>Move on Mars</h1>
+      <form>
+        <h3>please provide your travel plan</h3>
+        <p>press f for foward<br>press b for backward<br>press l to turn left<br> press r to turn right </p>
+        <input id="travelinput" type="text" pattern="[fblrFBLR]{1,20}">
+        <input id="submittravelplan" type="submit" value="Go!" onclick="travel(''roverOne'','travelinput')"/>
+      </form>
+    <div class="nonupcontrols">
+      <table>
+        <tr>
+          <td class="hidden"></td>
+          <td id="upcontrol" class="control"><i class="fas fa-angle-up"></i></td>
+          <td class="hidden"></td>
+        </tr>  
+        <tr>
+          <td id="leftcontrol" class="control"><i class="fas fa-angle-left"></i></td>
+          <td class="hidden"></td>
+          <td id="rightcontrol" class="control"><i  class="fas fa-angle-right"></i></td>
+        </tr>
+        <tr>
+          <td class="hidden"></td>
+          <td id="downcontrol" class="control"><i class="fas fa-angle-down"></i></td>
+          <td class="hidden"></td>
+          </tr>  
+      </table>
+    </div>
+  </div>
 
-  <div id= "box"><h1>Move on Mars</h1></div>
+
+  <div id= "box"></div>
+  </div>
 
   <script src="javascripts/app.js"></script>
 </body>

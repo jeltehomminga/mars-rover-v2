@@ -178,7 +178,7 @@ function travel(rover,string){
 
 
 function updateTable() {
-let gridarea = "<table border='1|1'><h1>Move on Mars</h1>";
+let gridarea = "<table border='1|1'>";
 for (let y = 0; y < grid.area.length; y++) {
   gridarea +="<tr>";
     for (let x = 0; x < grid.area[y].length; x++) {
@@ -193,3 +193,34 @@ document.getElementById("box").innerHTML = gridarea ;
 }
 
 updateTable();
+
+// control roverOne by mouse or keyboard
+
+let upControl = document.getElementById('upcontrol');
+let rightControl = document.getElementById('rightcontrol');
+let leftControl = document.getElementById('leftcontrol');
+let downControl = document.getElementById('downcontrol');
+
+// control by mouseclick
+upControl.onclick = () => travel(roverOne, "f");
+rightControl.onclick = () =>  travel(roverOne,"r");
+leftControl.onclick = () =>  travel(roverOne,"l");
+downControl.onclick = () => travel(roverOne, "b");
+
+//control by arrowkeys 
+document.onkeydown = function(e) {
+  switch (e.keyCode) {
+      case 37:
+          travel(roverOne,"l"); 
+          break;
+      case 38:
+          travel(roverOne, "f")
+          break;
+      case 39:
+          travel(roverOne,"r");
+          break;
+      case 40:
+          travel(roverOne, "b");
+          break;
+  }
+};
