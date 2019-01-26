@@ -1,109 +1,153 @@
+/* * {
+  border: solid black;
+} */
+
 body {
-    background-color: yellowgreen;
-    padding-top: 2%;
-    font-family: 'Permanent Marker';
+  background-color: yellowgreen;
+  padding-top: 2%;
+  font-family: "Permanent Marker";
+  vertical-align: middle;
 }
 
-
 h1 {
-    font-family: 'Permanent Marker', cursive;
-    text-shadow: -4px -2px #FF009f;
-    color: purple;
-    font-size: 50px;
-    margin: 0 auto;
-    }
+  font-family: "Permanent Marker", cursive;
+  text-shadow: -4px -2px #ff009f;
+  color: purple;
+  font-size: 50px;
+  margin: 0 auto;
+  width: max-content;
+}
+
+#titlesm {
+  display: none;
+}
 
 form {
-    display: flex;
-    flex-direction: column;
-}    
+  display: flex;
+  flex-direction: column;
+}
 
 input {
-    background-color:  lightslategray;
-    border-radius: 5px;
-    border: groove burlywood;
-    width: 45%;
-    margin: 5px auto;
-    font-family: 'Permanent Marker', cursive;
-    font-weight: 100;
-    font-size: 1.2em;
-    letter-spacing: 5px;
+  background-color: lightslategray;
+  border-radius: 5px;
+  border: groove burlywood;
+  width: min-content;
+  margin: 5px auto;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 100;
+  font-size: 1.2em;
+  letter-spacing: 5px;
 }
 
 #submittravelplan {
-    width: 25%;
+  width: 25%;
 }
 
 input:invalid {
-    border: solid red 5px;
+  border: solid red 2px;
 }
 
 td {
-    width: 55px;
-    height: 45px;
-    position: relative;
-    margin: 0;
-    border: groove burlywood;
-    background-color: rgba(32, 122, 138, 0.6);
-  }
-  
-  td > img {
-    width: 90%;
-    top: 0%;
-    position: absolute;
-  }
+  width: 55px;
+  height: 45px;
+  position: relative;
+  margin: 0;
+  border: groove burlywood;
+  background-color: rgba(32, 122, 138, 0.6);
+}
 
-  i {
-      font-size: 30px;
-      color: purple;
-  }
+td > img {
+  width: 90%;
+  top: 0%;
+  position: absolute;
+}
 
-  .hidden {
-      visibility: hidden;
-  }
+i {
+  font-size: 30px;
+  color: purple;
+}
 
-  table {
-      margin: 0 auto;
-      margin-top: 3%;
-  }
+.hidden {
+  visibility: hidden;
+}
 
-  .maincontainer {
-      display: flex;
-      justify-content: space-between;
-      width: 80%;
-      margin: 0 auto;
-  }
+table {
+  margin: 0 auto;
+  margin-top: 3%;
+}
 
-  .controlscontainer {
-      width: 50%;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      text-align: center;
-  }
+.maincontainer {
+  display: flex;
+  justify-content: space-between;
+  width: max-content;
+  margin: 8% auto;
+}
 
-  .control {
-      width: 55px;
-      background-color: lightslategrey;
-      border-radius: 10px;
-  }
+.controlscontainer {
+  width: 50%;
+  margin-right: 10%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.control {
+  width: 55px;
+  background-color: lightslategrey;
+  border-radius: 10px;
+}
 
 /* rotate classes depending on direction of rover */
 
 .N {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
-.E   {
-    transform: rotate(90deg);
+.E {
+  transform: rotate(90deg);
 }
 
 .S {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .W {
-    transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
+@media screen and (max-width: 1000px) {
+  #titlelarge {
+    display: none;
+  }
+
+  #titlesm {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .maincontainer {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  td {
+    width: 40px;
+    height: 30px;
+  }
+
+  .controlscontainer {
+    flex-direction: column-reverse;
+    margin: 5% auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  td {
+    width: 30px;
+    height: 25px;
+  }
+}
