@@ -260,6 +260,7 @@ let form = document.getElementById("form");
 
 button.onclick = () => {
   let value = document.getElementById("inputtext").value;
-  travel(roverOne, value);
+  let valueLowerCase = value.toLowerCase();
+  travel(roverOne, valueLowerCase);
   document.getElementById("inputtext").value = "";
 };
