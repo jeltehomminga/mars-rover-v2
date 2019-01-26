@@ -2,12 +2,16 @@
   border: solid black;
 } */
 
+html {
+  min-width: 440px;
+}
+
 body {
   background-color: yellowgreen;
   padding-top: 2%;
   font-family: "Permanent Marker";
   vertical-align: middle;
-}
+  }
 
 h1 {
   font-family: "Permanent Marker", cursive;
@@ -52,7 +56,7 @@ input:invalid {
 }
 
 td {
-  width: 55px;
+  width: 65px;
   height: 45px;
   position: relative;
   margin: 0;
@@ -61,7 +65,7 @@ td {
 }
 
 td > img {
-  width: 90%;
+  width: 100%;
   top: 0%;
   position: absolute;
 }
@@ -121,7 +125,7 @@ table {
   transform: rotate(-90deg);
 }
 
-@media screen and (max-width: 918px) {
+@media screen and (max-width: 1050px) {
   .maincontainer {
     flex-direction: column-reverse;
     align-items: center;
@@ -129,7 +133,7 @@ table {
 
   td {
     width: 40px;
-    height: 30px;
+    height: 35px;
   }
 
   .controlscontainer {
@@ -139,7 +143,7 @@ table {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   td {
     width: 30px;
     height: 25px;
