@@ -17,10 +17,8 @@ const roverTwo = {
 };
 
 // Grid Object
-// this will push new arrays with length 10 into the gridArray 
-// while the gridArray length is less than 10 
-let gridArray = [];
-while(gridArray.push([...Array(10)]) < 10);
+// create Array from length 10 with arrays of length 10
+let gridArray = Array.from({ length: 10 }, () => Array(10))
 
 const grid = {
   area: gridArray,
