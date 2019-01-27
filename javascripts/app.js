@@ -17,20 +17,13 @@ const roverTwo = {
 };
 
 // Grid Object
-var row = [, , , , , , , , , ,];
+// this will push new arrays with length 10 into the gridArray 
+// while the gridArray length is less than 10 
+let gridArray = [];
+while(gridArray.push([...Array(10)]) < 10);
+
 const grid = {
-  area: [
-    [...row],
-    [...row],
-    [...row],
-    [...row],
-    [...row],
-    [...row],
-    [...row],
-    [...row],
-    [...row],
-    [...row]
-  ],
+  area: gridArray,
   yMin: 0,
   xMin: 0,
   yMax: 9,
